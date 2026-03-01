@@ -1,0 +1,452 @@
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body,#root{
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: Arial, sans-serif;
+}
+
+
+body {
+  background-color: #f3f2ef;
+}
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+.navbar {
+  background-color: #fff;
+  height: 52px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 1px solid #d6d6d6;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-spacer {
+  height: 52px;
+  width: 100vw;
+}
+
+/* Logo */
+.nav-logo-wrapper {
+  height: 39px;
+  width: 39px;
+  flex-shrink: 0;
+}
+
+.nav-logo-img {
+  height: 100%;
+  width: 100%;
+  background-image: url(media/LinkedIn_logo_initials.png);
+  background-size: cover;
+}
+
+/* Search */
+.nav-search {
+  display: flex;
+  align-items: center;
+  width: 18%;
+  border: 1px solid #d6d6d6;
+  background-color: #eef3f8;
+  margin-right: 8%;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.nav-search-icon {
+  font-size: 1.1rem;
+  color: #555;
+  background-color: transparent;
+  margin-right: 6px;
+}
+
+.nav-search-icon:hover {
+  color: #000;
+  scale: 1.2;
+}
+
+.nav-search-input {
+  flex-grow: 1;
+  height: 26px;
+  border: none;
+  background-color: transparent;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+/* Nav Options */
+.nav-options {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  height: 100%;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: #000;
+  border-bottom: 2px solid #555;
+}
+
+.nav-item-icon {
+  font-size: 1.2rem;
+  background-color: transparent;
+}
+
+.nav-item-label {
+  font-size: 0.72rem;
+  font-weight: 400;
+  background-color: transparent;
+}
+
+/* Profile pic in nav */
+.nav-profile-pic {
+  height: 1.4rem;
+  width: 1.8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: transparent;
+}
+
+/* Divider between main nav and secondary nav */
+.nav-divider {
+  height: 60%;
+  width: 1px;
+  background-color: #d6d6d6;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   THREE-COLUMN LAYOUT
+   Left sidebar: 22vw | Feed: 52vw | Right sidebar: 22vw
+   (leaving ~4vw as breathing room via margins)
+   ============================================= */
+main {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 12px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sidebar-left {
+  width: 22vw;
+  max-width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 68px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feed {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-right {
+  width: 22vw;
+  max-width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 68px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* =============================================
+   CARDS (shared base style)
+   ============================================= */
+.card {
+  background-color: #fff;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* =============================================
+   PROFILE CARD (left sidebar)
+   ============================================= */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-card-banner {
+  width: 100%;
+  height: 60px;
+  background-image: url("media/profile_background.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-card-avatar {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-image: url("media/profile-pic.jpg");
+  background-size: cover;
+  background-position: center;
+  margin: -2rem 0 0 16px;
+}
+
+.profile-card-info {
+  padding: 8px 16px 16px;
+}
+
+.profile-card-info h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.profile-card-info .profile-title {
+  font-size: 0.78rem;
+  color: #444;
+  margin-top: 2px;
+}
+
+.profile-card-info .profile-location {
+  font-size: 0.72rem;
+  color: #00000077;
+  margin-top: 2px;
+}
+
+/* =============================================
+   SIDEBAR WIDGET CARDS
+   ============================================= */
+.widget-card {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.widget-card h3 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #000;
+  padding: 6px 0;
+}
+
+.widget-card p {
+  font-size: 0.78rem;
+  color: #0a66c2;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.widget-card p:hover {
+  text-decoration: underline;
+}
+
+.widget-link-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  cursor: pointer;
+  color: #444;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.widget-link-row:hover {
+  color: #000;
+}
+
+.widget-link-row i {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* =============================================
+   POST CARDS (feed)
+   ============================================= */
+.post-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Post Header */
+.post-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px 10px;
+}
+
+.post-avatar {
+  height: 44px;
+  width: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.post-author {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.post-title {
+  font-size: 0.75rem;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post-time {
+  font-size: 0.72rem;
+  color: #888;
+}
+
+.post-follow-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  color: #0a66c2;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 16px;
+  transition: background-color 0.15s;
+}
+
+.post-follow-btn:hover {
+  background-color: #e8f0f8;
+}
+
+/* Post Body */
+.post-body {
+  padding: 0 16px 12px;
+  font-size: 0.88rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* Reactions Row */
+.post-reactions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.reaction-icons {
+  font-size: 0.9rem;
+  letter-spacing: -2px;
+}
+
+.reaction-count {
+  flex: 1;
+}
+
+.reaction-comments {
+  color: #555;
+  cursor: pointer;
+}
+
+.reaction-comments:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* Post Divider */
+.post-divider {
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 0 16px;
+}
+
+/* Action Buttons */
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px 8px 6px;
+}
+
+.post-action-btn {
+  flex: 1;
+  border: none;
+  background: none;
+  color: #666;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.post-action-btn:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
